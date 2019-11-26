@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.2;netstandard2.0;net40;net45</TargetFrameworks>
+    <PackageId>PozitronDev.Convert</PackageId>
+    <Authors>Fati Iseni</Authors>
+    <Company>Pozitron Group LLC</Company>
+    <Product>Pozitron Convert</Product>
+    <Title>PozitronDev.Convert</Title>
+    <Description>Extensions to System.Object for inline conversion to various value types. Useful library for simplifying conversion tasks, considering all possible scenarios.</Description>
+    <Summary>Extensions to System.Object for inline conversion to various value types. Useful library for simplifying conversion tasks, considering all possible scenarios.</Summary>
+    <Copyright>Copyright © 2019 Pozitron Group LLC</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReleaseNotes>Initial Release.</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/fiseni/PozitronDev.Convert</PackageProjectUrl>
+    <PackageIconUrl>https://pozitrongroup.com/PozitronLogo.png</PackageIconUrl>
+    <PackageTags>pozitron convert extensions</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.0</Version>
+    <DocumentationFile>bin\$(Configuration)\PozitronDev.Convert.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/fiseni/PozitronDev.Convert</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-*" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
