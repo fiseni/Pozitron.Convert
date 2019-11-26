@@ -2,6 +2,9 @@
 <img src="pozitronlogo.png" width=15%>
 </h1>
 
+[![Build Status](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_apis/build/status/fiseni.PozitronDev.Convert?branchName=master)](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_build/latest?definitionId=5&branchName=master)
+[![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/pozitrongroup/PozitronDev.Convert/5.svg)](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_build/latest?definitionId=5&branchName=master)
+
 # PozitronDev Convert
 
 Extensions to System.Object for inline conversion to various value types. Useful library for simplifying conversion tasks, considering all possible scenarios.
