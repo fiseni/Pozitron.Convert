@@ -68,7 +68,7 @@ steps:
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
-    reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
+#    reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
 
 - task: CopyFiles@2
   displayName: 'Copy *.nupkg Files'
