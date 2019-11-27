@@ -1,9 +1,12 @@
-<h1 align="center">
-<img src="pozitronlogo.png" width=15%>
-</h1>
+<img align="left" src="pozitronlogo.png" width="120" height="120">
 
-[![Build Status](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_apis/build/status/fiseni.PozitronDev.Convert?branchName=master)](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_build/latest?definitionId=5&branchName=master)
-[![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/pozitrongroup/PozitronDev.Convert/5.svg)](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_build/latest?definitionId=5&branchName=master)
+&nbsp; [![NuGet](https://img.shields.io/nuget/v/PozitronDev.Convert.svg)](https://www.nuget.org/packages/PozitronDev.Convert)[![NuGet](https://img.shields.io/nuget/dt/PozitronDev.Convert.svg)](https://www.nuget.org/packages/PozitronDev.Convert)
+
+&nbsp; [![Build Status](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_apis/build/status/fiseni.PozitronDev.Convert?branchName=master)](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_build/latest?definitionId=5&branchName=master)
+
+&nbsp; [![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/pozitrongroup/PozitronDev.Convert/5.svg)](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_build/latest?definitionId=5&branchName=master)
+
+---
 
 # PozitronDev Convert
 
