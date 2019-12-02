@@ -2,11 +2,9 @@
 
 &nbsp; [![NuGet](https://img.shields.io/nuget/v/PozitronDev.Convert.svg)](https://www.nuget.org/packages/PozitronDev.Convert)[![NuGet](https://img.shields.io/nuget/dt/PozitronDev.Convert.svg)](https://www.nuget.org/packages/PozitronDev.Convert)
 
-&nbsp; [![Build Status](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_apis/build/status/fiseni.PozitronDev.Convert?branchName=master)](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_build/latest?definitionId=5&branchName=master)
+&nbsp; [![Build Status](https://dev.azure.com/pozitrondev/PozitronDev.Convert/_apis/build/status/fiseni.PozitronDev.Convert?branchName=master)](https://dev.azure.com/pozitrondev/PozitronDev.Convert/_build/latest?definitionId=3&branchName=master)
 
-&nbsp; [![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/pozitrongroup/PozitronDev.Convert/5.svg)](https://dev.azure.com/pozitrongroup/PozitronDev.Convert/_build/latest?definitionId=5&branchName=master)
-
----
+&nbsp; [![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/pozitrondev/PozitronDev.Convert/3.svg)](https://dev.azure.com/pozitrondev/PozitronDev.Convert/_build/latest?definitionId=3&branchName=master)
 
 # PozitronDev Convert
 
