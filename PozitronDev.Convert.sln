@@ -7,11 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PozitronDev.Convert", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC56A865-B6AD-403A-BE84-C08455D0A70A}"
 	ProjectSection(SolutionItems) = preProject
+		azure-build.yaml = azure-build.yaml
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PozitronDev.Convert.Tests", "tests\PozitronDev.Convert.Tests\PozitronDev.Convert.Tests.csproj", "{E8922112-6399-4D72-8943-CB31C6AB9C77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PozitronDev.Convert.Tests", "tests\PozitronDev.Convert.Tests\PozitronDev.Convert.Tests.csproj", "{E8922112-6399-4D72-8943-CB31C6AB9C77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

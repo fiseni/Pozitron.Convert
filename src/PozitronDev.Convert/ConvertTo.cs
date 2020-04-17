@@ -296,7 +296,11 @@ namespace PozitronDev.Convert
             {
                 if (isInputNullOrEmptyString) throw new FormatException();
 
-                return System.Convert.ToDouble(input);
+                var output = System.Convert.ToDouble(input);
+
+                if (double.IsInfinity(output)) throw new OverflowException();
+
+                return output;
             }
         }
 
@@ -312,7 +316,11 @@ namespace PozitronDev.Convert
 
                 try
                 {
-                    return System.Convert.ToDouble(input);
+                    var output = System.Convert.ToDouble(input);
+
+                    if (double.IsInfinity(output)) return default;
+
+                    return output;
                 }
                 catch (Exception)
                 {
@@ -333,7 +341,11 @@ namespace PozitronDev.Convert
 
                 try
                 {
-                    return System.Convert.ToDouble(input);
+                    var output = System.Convert.ToDouble(input);
+
+                    if (double.IsInfinity(output)) return null;
+
+                    return output;
                 }
                 catch (Exception)
                 {

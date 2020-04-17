@@ -7,105 +7,80 @@ using Xunit;
 
 namespace PozitronDev.Convert.Tests
 {
-    public class DoubleConversion_For
+    public class BoolConversion_For
     {
-        public static IEnumerable<object[]> DoublePairs_ShouldPass =>
+        public static IEnumerable<object[]> BoolPairs_ShouldPass =>
             new List<object[]>
             {
-                new object[] { double.MaxValue, double.MaxValue },
-                new object[] { float.MaxValue, float.MaxValue },
-                new object[] { 79228162514264337593543950335d, decimal.MaxValue },
-                new object[] { 1d, 1 },
-                new object[] { 0d, 0 },
-                new object[] { -1d, -1 },
-                new object[] { 0.1d, 0.1 },
-                new object[] { 0.1d, "0.1" },
+                new object[] { true, true },
+                new object[] { true, "true" },
+                new object[] { true, "True" },
+                new object[] { true, "TRUE" },
+                new object[] { true, "tRue" },
+                new object[] { false, false },
+                new object[] { false, "false" },
+                new object[] { false, "False" },
+                new object[] { false, "FALSE" },
+                new object[] { false, "faLse" },
             };
 
-        public static IEnumerable<object[]> DoubleInputs_ShouldFail =>
-            DoubleInputs_ShouldThrowFormatException.Concat(DoubleInputs_ShouldThrowInvalidCastException)
-                                                    .Concat(DoubleInputs_ShouldThrowOverflowException);
+        public static IEnumerable<object[]> BoolInputs_ShouldFail =>
+            BoolInputs_ShouldThrowFormatException;
 
-        public static IEnumerable<object[]> DoubleInputs_ShouldThrowFormatException =>
+
+        public static IEnumerable<object[]> BoolInputs_ShouldThrowFormatException =>
             new List<object[]>
             {
                 new object[] { null },
                 new object[] { string.Empty },
                 new object[] { "NotEmptyString" },
-            };
-
-        public static IEnumerable<object[]> DoubleInputs_ShouldThrowInvalidCastException =>
-            new List<object[]>
-            {
+                new object[]  { 0 },
+                new object[]  { 1 },
+                new object[]  { double.MaxValue },
                 new object[]  { DateTime.Now },
             };
 
-        public static IEnumerable<object[]> DoubleInputs_ShouldThrowOverflowException =>
-            new List<object[]>
-            {
-                new object[] { "1.79769313486232E+999" },
-            };
-
 
         [Theory]
-        [MemberData(nameof(DoublePairs_ShouldPass))]
-        public void ToDouble_Should_Succeed(double expected, object input)
+        [MemberData(nameof(BoolPairs_ShouldPass))]
+        public void ToBool_Should_Succeed(bool expected, object input)
         {
-            Assert.Equal(expected, input.To().Double);
-            Assert.Equal(expected, input.To<double>());
+            Assert.Equal(expected, input.To().Bool);
         }
 
         [Theory]
-        [MemberData(nameof(DoubleInputs_ShouldThrowFormatException))]
-        public void ToDouble_Should_ThrowFormatException(object input)
+        [MemberData(nameof(BoolInputs_ShouldThrowFormatException))]
+        public void ToBool_Should_ThrowFormatException(object input)
         {
-            Assert.Throws<FormatException>(() => input.To().Double);
-            Assert.Throws<FormatException>(() => input.To<double>());
+            Assert.Throws<FormatException>(() => input.To().Bool);
+        }
+
+
+        [Theory]
+        [MemberData(nameof(BoolPairs_ShouldPass))]
+        public void ToBoolOrNull_Should_Succeed(bool expected, object input)
+        {
+            Assert.Equal(expected, input.To().BoolOrNull);
+        }
+        [Theory]
+        [MemberData(nameof(BoolInputs_ShouldFail))]
+        public void ToBoolOrNull_Should_ReturnNull(object input)
+        {
+            Assert.Null(input.To().BoolOrNull);
         }
 
         [Theory]
-        [MemberData(nameof(DoubleInputs_ShouldThrowInvalidCastException))]
-        public void ToDouble_Should_ThrowInvalidCastException(object input)
+        [MemberData(nameof(BoolPairs_ShouldPass))]
+        public void ToBoolOrDefault_Should_Succeed(bool expected, object input)
         {
-            Assert.Throws<InvalidCastException>(() => input.To().Double);
-            Assert.Throws<InvalidCastException>(() => input.To<double>());
+            Assert.Equal(expected, input.To().BoolOrDefault);
         }
 
         [Theory]
-        [MemberData(nameof(DoubleInputs_ShouldThrowOverflowException))]
-        public void ToDouble_Should_ThrowOverflowException(object input)
+        [MemberData(nameof(BoolInputs_ShouldFail))]
+        public void ToBoolOrDefault_Should_ReturnDefault(object input)
         {
-            Assert.Throws<OverflowException>(() => input.To().Double);
-            Assert.Throws<OverflowException>(() => input.To<double>());
-        }
-
-        [Theory]
-        [MemberData(nameof(DoublePairs_ShouldPass))]
-        public void ToDoubleOrNull_Should_Succeed(double expected, object input)
-        {
-            Assert.Equal(expected, input.To().DoubleOrNull);
-            Assert.Equal(expected, input.To<double?>());
-        }
-        [Theory]
-        [MemberData(nameof(DoubleInputs_ShouldFail))]
-        public void ToDoubleOrNull_Should_ReturnNull(object input)
-        {
-            Assert.Null(input.To().DoubleOrNull);
-            Assert.Null(input.To<double?>());
-        }
-
-        [Theory]
-        [MemberData(nameof(DoublePairs_ShouldPass))]
-        public void ToDoubleOrDefault_Should_Succeed(double expected, object input)
-        {
-            Assert.Equal(expected, input.To().DoubleOrDefault);
-        }
-
-        [Theory]
-        [MemberData(nameof(DoubleInputs_ShouldFail))]
-        public void ToDoubleOrDefault_Should_ReturnDefault(object input)
-        {
-            Assert.Equal(0d, input.To().DoubleOrDefault);
+            Assert.False(input.To().BoolOrDefault);
         }
     }
 }
