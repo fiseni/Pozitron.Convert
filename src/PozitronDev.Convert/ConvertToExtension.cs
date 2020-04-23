@@ -34,7 +34,7 @@ namespace PozitronDev.Convert
 
             if (itemType == typeof(bool))
             {
-                return (T)(object)convertTo.BoolOrDefault;
+                return (T)(object)convertTo.Bool;
             }
             else if (itemType == typeof(bool?))
             {

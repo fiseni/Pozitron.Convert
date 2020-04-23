@@ -43,7 +43,7 @@ namespace PozitronDev.Convert.Tests
         [MemberData(nameof(StringPairs_ShouldPass))]
         public void ToStringOrNull_Should_Succeed(string expected, object input)
         {
-            Assert.Equal(expected, input.To().StringOrEmpty);
+            Assert.Equal(expected, input.To().StringOrNull);
         }
 
         [Theory]

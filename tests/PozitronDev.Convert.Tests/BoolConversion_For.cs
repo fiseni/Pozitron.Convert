@@ -46,6 +46,7 @@ namespace PozitronDev.Convert.Tests
         public void ToBool_Should_Succeed(bool expected, object input)
         {
             Assert.Equal(expected, input.To().Bool);
+            Assert.Equal(expected, input.To<bool>());
         }
 
         [Theory]
@@ -53,6 +54,7 @@ namespace PozitronDev.Convert.Tests
         public void ToBool_Should_ThrowFormatException(object input)
         {
             Assert.Throws<FormatException>(() => input.To().Bool);
+            Assert.Throws<FormatException>(() => input.To<bool>());
         }
 
 
@@ -61,12 +63,14 @@ namespace PozitronDev.Convert.Tests
         public void ToBoolOrNull_Should_Succeed(bool expected, object input)
         {
             Assert.Equal(expected, input.To().BoolOrNull);
+            Assert.Equal(expected, input.To<bool?>());
         }
         [Theory]
         [MemberData(nameof(BoolInputs_ShouldFail))]
         public void ToBoolOrNull_Should_ReturnNull(object input)
         {
             Assert.Null(input.To().BoolOrNull);
+            Assert.Null(input.To<bool?>());
         }
 
         [Theory]
