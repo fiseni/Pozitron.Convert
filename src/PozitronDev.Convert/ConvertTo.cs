@@ -11,7 +11,7 @@ namespace PozitronDev.Convert
     {
         private object input;
 
-        private bool isInputNullOrEmptyString => (input == null || input.ToString().Length == 0);
+        private bool isInputNullOrEmptyString;
 
         /// <summary>
         /// It requires object value upon which "To" clauses are built.
@@ -20,6 +20,7 @@ namespace PozitronDev.Convert
         public ConvertTo(object input)
         {
             this.input = input;
+            isInputNullOrEmptyString = (input == null || input.ToString().Length == 0);
         }
 
         /// <summary>
