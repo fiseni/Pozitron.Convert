@@ -23,6 +23,16 @@ The real benefit becomes obvious in desktop applications development, where cont
     }
 ```
 
+```c#
+    public void ReadUserInputs()
+    {
+    	FirstName = FirstNameText.EditValue.To().StringOrEmpty;
+        Quantity = QuantityText.EditValue.To().IntOrDefault;
+        Price = PriceText.EditValue.To().Decimal;
+        SortNo = SortNoText.EditValue.To<int>();
+    }
+```
+
 ## Give a Star! :star:
 Please give it a star if you like or using the project. Thanks!
 
