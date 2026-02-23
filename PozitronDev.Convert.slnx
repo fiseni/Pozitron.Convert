@@ -5,6 +5,7 @@
     <File Path="clean.sh" />
     <File Path="exclusion.dic" />
     <File Path="LICENSE.txt" />
+    <File Path="readme-nuget.md" />
     <File Path="README.md" />
     <File Path="run-tests.sh" />
   </Folder>
