@@ -1,8 +1,12 @@
 <Solution>
-  <Folder Name="/Solution Items/">
-    <File Path="azure-build.yaml" />
+  <Folder Name="/_meta/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="clean.sh" />
+    <File Path="exclusion.dic" />
     <File Path="LICENSE.txt" />
     <File Path="README.md" />
+    <File Path="run-tests.sh" />
   </Folder>
   <Project Path="src/Pozitron.Convert/Pozitron.Convert.csproj" />
   <Project Path="tests/Pozitron.Convert.Tests/Pozitron.Convert.Tests.csproj" />
