@@ -1,33 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\ProjectMetadata.props" />
+  <Import Project="..\ProjectMetadata.targets" />
+
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.2;netstandard2.0;net40;net45</TargetFrameworks>
-    <PackageId>PozitronDev.Convert</PackageId>
-    <Authors>Fati Iseni</Authors>
-    <Company>Pozitron Group LLC</Company>
-    <Product>Pozitron Convert</Product>
-    <Title>PozitronDev.Convert</Title>
-    <Description>Extensions to System.Object for inline conversion to various value types. Useful library for simplifying conversion tasks, considering all possible scenarios.</Description>
-    <Summary>Extensions to System.Object for inline conversion to various value types. Useful library for simplifying conversion tasks, considering all possible scenarios.</Summary>
-    <Copyright>Copyright © 2019 Pozitron Group LLC</Copyright>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageReleaseNotes>Update the Double conversions to adjust for beaking changes in .Net Core 3.1 for not throwing overflow exception.</PackageReleaseNotes>
-    <PackageProjectUrl>https://github.com/fiseni/PozitronDev.Convert</PackageProjectUrl>
-    <PackageIconUrl>https://pozitrongroup.com/PozitronLogo.png</PackageIconUrl>
-    <PackageIcon>pozitronicon.png</PackageIcon>
-    <PackageTags>pozitron convert extensions</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.1.0</Version>
-    <DocumentationFile>bin\$(Configuration)\PozitronDev.Convert.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/fiseni/PozitronDev.Convert</RepositoryUrl>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <AssemblyName>Pozitron.Convert</AssemblyName>
+    <RootNamespace>Pozitron.Convert</RootNamespace>
+    <TargetFrameworks>netstandard2.0;net462</TargetFrameworks>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-*" PrivateAssets="All" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="../../pozitronicon.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
+
+  <PropertyGroup Label="Package Metadata">
+    <Version>2.0.0</Version>
+    <PackageId>Pozitron.Convert</PackageId>
+    <Title>Pozitron.Convert</Title>
+    <Description>A simple library that simplifies conversion tasks.</Description>
+    <Summary>A simple library that simplifies conversion tasks.</Summary>
+    <PackageTags>fiseni pozitron extensions convert conversion</PackageTags>
+    <PackageReleaseNotes>
+      Refer to Releases page for details.
+      https://github.com/fiseni/Pozitron.Convert/releases
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Build and Packaging">
+    <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Deterministic>true</Deterministic>
+  
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--Missing XML comment-->
+    <!--<NoWarn>1591</NoWarn>-->
+  </PropertyGroup>
+    
 </Project>

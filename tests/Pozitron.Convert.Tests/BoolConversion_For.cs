@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Xunit;
-
-namespace Pozitron.Convert.Tests
+﻿namespace Tests
 {
     public class BoolConversion_For
     {

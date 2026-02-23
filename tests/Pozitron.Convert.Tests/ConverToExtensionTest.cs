@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
-
-namespace Pozitron.Convert.Tests
+﻿namespace Tests
 {
     public class ConverToExtensionTest
     {
