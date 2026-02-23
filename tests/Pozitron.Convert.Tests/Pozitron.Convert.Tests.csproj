@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\PozitronDev.Convert\PozitronDev.Convert.csproj" />
+    <ProjectReference Include="..\..\src\Pozitron.Convert\Pozitron.Convert.csproj" />
   </ItemGroup>
 
 </Project>

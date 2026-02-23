@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Xunit;
 
-namespace PozitronDev.Convert.Tests
+namespace Pozitron.Convert.Tests
 {
     public class DecimalConversion_For
     {

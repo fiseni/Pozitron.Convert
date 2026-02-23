@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="azure-build.yaml" />
+    <File Path="LICENSE.txt" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="src/Pozitron.Convert/Pozitron.Convert.csproj" />
+  <Project Path="tests/Pozitron.Convert.Tests/Pozitron.Convert.Tests.csproj" />
+</Solution>

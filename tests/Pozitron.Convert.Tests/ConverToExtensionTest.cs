@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace PozitronDev.Convert.Tests
+namespace Pozitron.Convert.Tests
 {
     public class ConverToExtensionTest
     {

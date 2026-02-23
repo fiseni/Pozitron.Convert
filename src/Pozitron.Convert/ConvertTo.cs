@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PozitronDev.Convert
+namespace Pozitron.Convert
 {
     /// <summary>
     /// A collection of common "To" clauses.
