@@ -1,71 +1,96 @@
 <img align="left" src="pozitronlogo.png" width="120" height="120">
 
-&nbsp; [![NuGet](https://img.shields.io/nuget/v/PozitronDev.Convert.svg)](https://www.nuget.org/packages/PozitronDev.Convert)[![NuGet](https://img.shields.io/nuget/dt/PozitronDev.Convert.svg)](https://www.nuget.org/packages/PozitronDev.Convert)
+&nbsp; [![NuGet](https://img.shields.io/nuget/v/Pozitron.Convert.svg)](https://www.nuget.org/packages/Pozitron.Convert) [![NuGet](https://img.shields.io/nuget/dt/Pozitron.Convert.svg)](https://www.nuget.org/packages/Pozitron.Convert)
 
-&nbsp; [![Build Status](https://dev.azure.com/pozitrondev/PozitronDev.Convert/_apis/build/status/fiseni.PozitronDev.Convert?branchName=master)](https://dev.azure.com/pozitrondev/PozitronDev.Convert/_build/latest?definitionId=3&branchName=master)
+<br clear="left"/>
 
-&nbsp; [![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/pozitrondev/PozitronDev.Convert/3.svg)](https://dev.azure.com/pozitrondev/PozitronDev.Convert/_build/latest?definitionId=3&branchName=master)
+# Pozitron.Convert
 
-# PozitronDev Convert
+A lightweight .NET library providing safe, null-tolerant conversion extension methods for `string` and `object` types. Conversion failures never throw — a `default` or `null` value is returned instead.
 
-Extensions to System.Object for inline conversion to various value types. Useful library for simplifying conversion tasks, considering all possible scenarios.
+## Installation
+
+```bash
+dotnet add package Pozitron.Convert
+```
+
+## Target Frameworks
+
+| Framework | Notes |
+|-----------|-------|
+| .NET Standard 2.0 | String extensions support a fixed set of types |
+| .NET 10.0 | String extensions support any `IParsable<T>` type |
 
 ## Usage
 
-The real benefit becomes obvious in desktop applications development, where controls might return object values. By using these extensions we can get some clean inline assignments.
+### Converting strings
 
-```c#
-    public void SetMinimumQuantity(object controlValue)
-    {
-    	var minQuantity = controlValue.To<double?>() ?? 1;
+```csharp
+// Returns the default(T) when conversion fails or input is null
+int count = "42".To<int>();
+decimal price = "1.99".To<decimal>();
 
-        // process some logic here
-    }
+// Returns a custom default when conversion fails or input is null
+int count = "abc".To<int>(defaultValue: -1);
+
+// Returns null when conversion fails or input is null
+int? count = "abc".ToNullable<int>();
+decimal? price = "1.99".ToNullable<decimal>();
 ```
 
-```c#
-    public void ReadUserInputs()
-    {
-    	FirstName = FirstNameText.EditValue.To().StringOrEmpty;
-        Quantity = QuantityText.EditValue.To().IntOrDefault;
-        Price = PriceText.EditValue.To().Decimal;
-        SortNo = SortNoText.EditValue.To<int>();
-    }
+On .NET 10, `To<T>` and `ToNullable<T>` accept any type implementing `IParsable<T>`, such as `Guid`, `DateOnly`, `TimeOnly`, `DateTimeOffset`, and all numeric types.
+
+```csharp
+var id = "d3b07384-d9a0-4f3a-8d1b-2e4f6c8a1b3d".To<Guid>();
+var date = "2024-01-15".To<DateOnly>();
 ```
+
+### Converting objects
+
+Particularly useful in desktop/WinForms applications where UI controls return `object` values.
+
+```csharp
+object controlValue = quantityTextBox.EditValue;
+
+double qty = controlValue.To<double>();
+int id = controlValue.To<int>(defaultValue: 0);
+string? name = controlValue.To<string>();
+int? nullableId = controlValue.ToNullable<int>();
+```
+
+### Culture-aware conversion
+
+Both `string` and `object` extension methods accept an optional `IFormatProvider`.
+
+```csharp
+var price = "1,99".To<decimal>(provider: new CultureInfo("de-DE"));
+var date = "01.01.2024".To<DateTime>(provider: new CultureInfo("de-DE"));
+```
+
+## API
+
+### `StringExtensions`
+
+Extension methods on `string?`.
+
+| Method | Constraint | Returns |
+|--------|-----------|---------|
+| `To<T>(T? defaultValue, IFormatProvider? provider)` | `T : IParsable<T>` (.NET 10) / `T : struct` (.NET Standard 2.0) | Parsed value, or `defaultValue` on failure/null |
+| `ToNullable<T>(IFormatProvider? provider)` | `T : struct, IParsable<T>` (.NET 10) / `T : struct` (.NET Standard 2.0) | Parsed value, or `null` on failure/null |
+
+> On .NET Standard 2.0, string extensions support: `int`, `decimal`, `double`, `float`, `DateTime`, `bool`.
+
+### `ObjectExtensions`
+
+Extension methods on `object?`. Uses `System.Convert.ChangeType` internally and supports any `IConvertible` type, including `string`.
+
+| Method | Constraint | Returns |
+|--------|-----------|---------|
+| `To<T>(T? defaultValue, IFormatProvider? provider)` | `T : IConvertible` | Converted value, or `defaultValue` on failure/null |
+| `ToNullable<T>(IFormatProvider? provider)` | `T : struct, IConvertible` | Converted value, or `null` on failure/null |
+
+The `To<T>` methods are annotated with `[NotNullIfNotNull(nameof(defaultValue))]` for accurate nullable static analysis on .NET 10.
 
 ## Give a Star! :star:
-Please give it a star if you like or using the project. Thanks!
-
-## Supported Extensions
-
-- `object.To().StringOrEmpty`
-- `object.To().StringOrNull`
-- `object.To().Bool`
-- `object.To().BoolOrNull`
-- `object.To().BoolOrDefault`
-- `object.To().Int`
-- `object.To().IntOrNull`
-- `object.To().IntOrDefault`
-- `object.To().Long`
-- `object.To().LongOrNull`
-- `object.To().LongOrDefault`
-- `object.To().Decimal`
-- `object.To().DecimalOrNull`
-- `object.To().DecimalOrDefault`
-- `object.To().Double`
-- `object.To().DoubleOrNull`
-- `object.To().DoubleOrDefault`
-- `object.To().DateTime`
-- `object.To().DateTimeOrNull`
-- `object.To().DateTimeOrDefault`
-
-#### Short-hand notations
-
-- `object.To<T>()` for `object.To().T`
-- `object.To<T?>()` for `object.To().TOrNull`
-
-e.g.
-- `object.To<int>()` for `object.To().Int`
-- `object.To<int?>()` for `object.To().IntOrNull`
-
+If you find this library useful, please give it a star. Thanks!
 
