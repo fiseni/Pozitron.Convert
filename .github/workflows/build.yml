@@ -20,7 +20,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release
     - name: Test
-      run: dotnet test --configuration Release --no-build --no-restore --collect:"XPlat Code Coverage;Format=opencover"
+      run: dotnet test --framework net10.0 --configuration Release --no-build --no-restore --collect:"XPlat Code Coverage;Format=opencover"
     - name: ReportGenerator
       uses: danielpalme/ReportGenerator-GitHub-Action@5.3.9
       with:
