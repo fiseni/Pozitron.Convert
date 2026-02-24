@@ -1,5 +1,3 @@
-# Pozitron.Convert
-
 A lightweight .NET library providing safe, null-tolerant conversion extension methods for `string` and `object` types. Conversion failures never throw — a `default` or `null` value is returned instead.
 
 ## Installation

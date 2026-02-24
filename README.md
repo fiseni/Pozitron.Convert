@@ -1,8 +1,12 @@
 <img align="left" src="pozitronlogo.png" width="120" height="120">
 
-&nbsp; [![NuGet](https://img.shields.io/nuget/v/Pozitron.Convert.svg)](https://www.nuget.org/packages/Pozitron.Convert) [![NuGet](https://img.shields.io/nuget/dt/Pozitron.Convert.svg)](https://www.nuget.org/packages/Pozitron.Convert)
+&nbsp; [![NuGet](https://img.shields.io/nuget/v/Pozitron.Convert.svg)](https://www.nuget.org/packages/Pozitron.Convert)
 
-<br clear="left"/>
+&nbsp; [![Full Build](https://github.com/fiseni/Pozitron.Convert/actions/workflows/build.yml/badge.svg)](https://github.com/fiseni/Pozitron.Convert/actions/workflows/build.yml)
+
+&nbsp; [![Coverage](https://convert.fiseni.com/badge_combined.svg)](https://convert.fiseni.com)
+
+---
 
 # Pozitron.Convert
 
