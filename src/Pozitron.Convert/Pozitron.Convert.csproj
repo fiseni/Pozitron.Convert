@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\ProjectMetadata.props" />
+  <Import Project="..\ProjectMetadata.targets" />
+
+  <PropertyGroup>
+    <AssemblyName>Pozitron.Convert</AssemblyName>
+    <RootNamespace>Pozitron.Convert</RootNamespace>
+    <TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package Metadata">
+    <Version>2.0.0</Version>
+    <PackageId>Pozitron.Convert</PackageId>
+    <Title>Pozitron.Convert</Title>
+    <Description>A simple library that simplifies conversion tasks.</Description>
+    <Summary>A simple library that simplifies conversion tasks.</Summary>
+    <PackageTags>fiseni pozitron extensions convert conversion</PackageTags>
+    <PackageReleaseNotes>
+      Refer to Releases page for details.
+      https://github.com/fiseni/Pozitron.Convert/releases
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Build and Packaging">
+    <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Deterministic>true</Deterministic>
+  
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--Missing XML comment-->
+    <!--<NoWarn>1591</NoWarn>-->
+  </PropertyGroup>
+    
+</Project>
