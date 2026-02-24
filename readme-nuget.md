@@ -67,7 +67,7 @@ var date = "01.01.2024".To<DateTime>(provider: new CultureInfo("de-DE"));
 
 Extension methods on `string?`.
 
-| TFM | Method | Constraint |
+| TFM | Method | Returns |
 |--------|--------|-----------|
 | (.NET 10) | `T? To<T>(this string? value, T? defaultValue = default, IFormatProvider? provider = null) where T : IParsable<T>` | Parsed value, or `defaultValue` on failure/null |
 | (.NET 10) | `T? ToNullable<T>(this string? value, IFormatProvider? provider = null) where T : struct, IParsable<T>` | Parsed value, or `null` on failure/null |
@@ -80,8 +80,8 @@ Extension methods on `string?`.
 
 Extension methods on `object?`. Uses `System.Convert.ChangeType` internally and supports any `IConvertible` type, including `string`.
 
-| Method | Constraint | Returns |
-|--------|-----------|---------|
+| Method | Returns |
+|--------|---------|
 | `T? To<T>(this object? value, T? defaultValue = default, IFormatProvider? provider = null) where T : IConvertible` | Converted value, or `defaultValue` on failure/null |
 | `T? ToNullable<T>(this object? value, IFormatProvider? provider = null) where T : struct, IConvertible` | Converted value, or `null` on failure/null |
 

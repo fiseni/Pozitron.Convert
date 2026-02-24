@@ -88,8 +88,8 @@ Extension methods on `object?`. Uses `System.Convert.ChangeType` internally and 
 
 | Method | Returns |
 |--------|---------|
-| `csharp T? To<T>(this object? value, T? defaultValue = default, IFormatProvider? provider = null) where T : IConvertible` | Converted value, or `defaultValue` on failure/null |
-| `csharp T? ToNullable<T>(this object? value, IFormatProvider? provider = null) where T : struct, IConvertible` | Converted value, or `null` on failure/null |
+| `T? To<T>(this object? value, T? defaultValue = default, IFormatProvider? provider = null) where T : IConvertible` | Converted value, or `defaultValue` on failure/null |
+| `T? ToNullable<T>(this object? value, IFormatProvider? provider = null) where T : struct, IConvertible` | Converted value, or `null` on failure/null |
 
 The `To<T>` methods are annotated with `[NotNullIfNotNull(nameof(defaultValue))]` for accurate nullable static analysis on .NET 10.
 
