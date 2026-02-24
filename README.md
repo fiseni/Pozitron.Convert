@@ -69,25 +69,27 @@ var date = "01.01.2024".To<DateTime>(provider: new CultureInfo("de-DE"));
 
 ## API
 
-### `StringExtensions`
+### String Extensions
 
 Extension methods on `string?`.
 
-| Method | Constraint | Returns |
-|--------|-----------|---------|
-| `To<T>(T? defaultValue, IFormatProvider? provider)` | `T : IParsable<T>` (.NET 10) / `T : struct` (.NET Standard 2.0) | Parsed value, or `defaultValue` on failure/null |
-| `ToNullable<T>(IFormatProvider? provider)` | `T : struct, IParsable<T>` (.NET 10) / `T : struct` (.NET Standard 2.0) | Parsed value, or `null` on failure/null |
+| TFM | Method | Constraint |
+|--------|--------|-----------|
+| (.NET 10) | `T? To<T>(this string? value, T? defaultValue = default, IFormatProvider? provider = null) where T : IParsable<T>` | Parsed value, or `defaultValue` on failure/null |
+| (.NET 10) | `T? ToNullable<T>(this string? value, IFormatProvider? provider = null) where T : struct, IParsable<T>` | Parsed value, or `null` on failure/null |
+| (.NET Standard 2.0) | `T To<T>(this string? value, T defaultValue = default) where T : struct` | Parsed value, or `defaultValue` on failure/null |
+| (.NET Standard 2.0) | `T? ToNullable<T>(this string? value) where T : struct` | Parsed value, or `null` on failure/null |
 
 > On .NET Standard 2.0, string extensions support: `int`, `decimal`, `double`, `float`, `DateTime`, `bool`.
 
-### `ObjectExtensions`
+### Object Extensions
 
 Extension methods on `object?`. Uses `System.Convert.ChangeType` internally and supports any `IConvertible` type, including `string`.
 
 | Method | Constraint | Returns |
 |--------|-----------|---------|
-| `To<T>(T? defaultValue, IFormatProvider? provider)` | `T : IConvertible` | Converted value, or `defaultValue` on failure/null |
-| `ToNullable<T>(IFormatProvider? provider)` | `T : struct, IConvertible` | Converted value, or `null` on failure/null |
+| `T? To<T>(this object? value, T? defaultValue = default, IFormatProvider? provider = null) where T : IConvertible` | Converted value, or `defaultValue` on failure/null |
+| `T? ToNullable<T>(this object? value, IFormatProvider? provider = null) where T : struct, IConvertible` | Converted value, or `null` on failure/null |
 
 The `To<T>` methods are annotated with `[NotNullIfNotNull(nameof(defaultValue))]` for accurate nullable static analysis on .NET 10.
 
