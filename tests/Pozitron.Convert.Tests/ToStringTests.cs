@@ -1,7 +1,4 @@
-﻿using Pozitron.Convert;
-using FluentAssertions;
-
-namespace Tests;
+﻿namespace Tests;
 
 public class ToStringTests
 {
@@ -27,8 +24,5 @@ public class ToStringTests
         var result = input.To<string>(defaultValue);
 
         result.Should().Be(expected);
-
-        object x = "asd";
-        var q = x.To<string>();
     }
 }

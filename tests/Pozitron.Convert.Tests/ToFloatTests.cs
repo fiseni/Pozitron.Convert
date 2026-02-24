@@ -1,7 +1,4 @@
-﻿using Pozitron.Convert;
-using FluentAssertions;
-
-namespace Tests;
+﻿namespace Tests;
 
 public class ToFloatTests
 {
