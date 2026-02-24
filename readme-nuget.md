@@ -44,12 +44,10 @@ var date = "2024-01-15".To<DateOnly>();
 Particularly useful in desktop/WinForms applications where UI controls return `object` values.
 
 ```csharp
-object controlValue = quantityTextBox.EditValue;
-
-double qty = controlValue.To<double>();
-int id = controlValue.To<int>(defaultValue: 0);
-string? name = controlValue.To<string>();
-int? nullableId = controlValue.ToNullable<int>();
+double qty = controlValue.EditValue.To<double>();
+int id = controlValue2.EditValue.To<int>(defaultValue: 0);
+string? name = controlValue3.EditValue.To<string>();
+int? nullableId = controlValue4.EditValue.ToNullable<int>();
 ```
 
 ### Culture-aware conversion
