@@ -386,6 +386,6 @@ FodyWeavers.xsd
 **/.idea/**/contentModel.xml
 **/.idea/**/modules.xml
 
-# Developer config files
-**/appsettings.Development*.json
-nuget.config
+# Verify
+*.received.*
+*.received/
